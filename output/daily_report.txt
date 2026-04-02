@@ -1,0 +1,27 @@
+KIDSY LIQUIDATION SCOUT REPORT
+========================================
+Generated at: 2026-04-02 00:00:22
+
+1. Fisher-Price Toy Bundle
+   Price: $800
+   Source: Liquidation.com
+   Condition: Overstock
+   Location: PA
+   Score: 75
+   URL: https://example.com/fisher-price-bundle
+
+2. Baby Walker Special Lot
+   Price: $0
+   Source: B-Stock
+   Condition: Returns
+   Location: Unknown
+   Score: 60
+   URL: https://example.com/baby-walker
+
+3. Graco Baby Stroller Lot
+   Price: $1200
+   Source: B-Stock
+   Condition: Returns
+   Location: NJ
+   Score: 55
+   URL: https://example.com/graco-lot
