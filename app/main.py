@@ -1,9 +1,10 @@
-from config import SOURCE_URL, SNAPSHOT_FILE
+from config import SOURCE_URL, SNAPSHOT_FILE, SLACK_WEBHOOK_URL
 from fetcher import fetch_html, save_html_to_file
 from collectors.bstock_collector import BStockCollector
 from filters import filter_relevant_deals
 from scoring import add_scores_to_deals
 from reporting import print_report, save_report_to_file, save_deals_to_csv
+from slack_notifier import build_slack_message, send_slack_message
 
 
 def main():
@@ -34,6 +35,13 @@ def main():
     print_report(top_deals)
     save_report_to_file(top_deals, "output/daily_report.txt")
     save_deals_to_csv(top_deals, "output/top_deals.csv")
+
+    if SLACK_WEBHOOK_URL:
+        slack_message = build_slack_message(top_deals)
+        send_slack_message(SLACK_WEBHOOK_URL, slack_message)
+        print("Slack message sent successfully.")
+    else:
+        print("Slack webhook URL not set. Skipping Slack notification.")
 
     print("\nFiles created:")
     print("- snapshots/source_page.html")
