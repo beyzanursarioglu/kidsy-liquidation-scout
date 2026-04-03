@@ -18,6 +18,12 @@ def build_report_text(deals):
         lines.append(f"   Location: {deal['location']}")
         lines.append(f"   Score: {deal['score']}")
         lines.append(f"   URL: {deal['url']}")
+
+        if deal.get("reasons"):
+            lines.append("   Why it matters:")
+            for reason in deal["reasons"]:
+                lines.append(f"   - {reason}")
+
         lines.append("")
 
     return "\n".join(lines)
@@ -36,7 +42,7 @@ def save_report_to_file(deals, file_path):
 
 
 def save_deals_to_csv(deals, file_path):
-    fieldnames = ["title", "price", "source", "condition", "location", "score", "url"]
+    fieldnames = ["title", "price", "source", "condition", "location", "score", "reasons", "url"]
 
     with open(file_path, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -50,5 +56,6 @@ def save_deals_to_csv(deals, file_path):
                 "condition": deal["condition"],
                 "location": deal["location"],
                 "score": deal["score"],
+                "reasons": "; ".join(deal.get("reasons", [])),
                 "url": deal["url"]
             })

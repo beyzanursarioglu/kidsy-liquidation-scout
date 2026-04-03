@@ -1,3 +1,9 @@
+Downloading source page...
+Saved snapshot to: snapshots/source_page.html
+Collected deals: 4
+Relevant deals: 3
+Scored deals: 3
+Top deals selected: 3
 KIDSY LIQUIDATION SCOUT REPORT
 ========================================
 Generated at: 2026-04-03 02:13:42
@@ -44,3 +50,11 @@ Generated at: 2026-04-03 02:13:42
    - Returns condition
    - Trusted source
    - Nearby location
+
+Slack message sent successfully.
+
+Files created:
+- snapshots/source_page.html
+- output/daily_report.txt
+- output/top_deals.csv
+-----------------------------

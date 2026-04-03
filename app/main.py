@@ -5,6 +5,7 @@ from filters import filter_relevant_deals
 from scoring import add_scores_to_deals
 from reporting import print_report, save_report_to_file, save_deals_to_csv
 from slack_notifier import build_slack_message, send_slack_message
+from collectors.marketplace_collector import MarketplaceCollector
 
 
 def main():
@@ -13,7 +14,7 @@ def main():
     save_html_to_file(html_content, SNAPSHOT_FILE)
     print(f"Saved snapshot to: {SNAPSHOT_FILE}")
 
-    collector = BStockCollector("app/sample_page.html")
+    collector = MarketplaceCollector("app/realistic_sample_page.html")
     deals = collector.collect()
     print(f"Collected deals: {len(deals)}")
 
